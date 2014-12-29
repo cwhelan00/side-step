@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Side Step</title>
+
+	<!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+</head>
+
+<body>
+
+	<!-- jQuery Javascript -->
+  	<script type="text/javascript"
+  	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- My Javascript -->
+  	<script type="text/javascript"
+  	src="javascripts/account.js"></script>
+
+  	<script type="text/javascript"
+  	src="javascripts/log.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    {{>navbar}}
+
+    <div class="container">
+    	<h3>Log Today's Food and Exercise</h3>
+    	<a href="http://127.0.0.1:3000/account/log/today"><button class="btn btn-success">Regret</button></a>
+    	<h3>Memory Lane</h3>
+    	<hr/>
+    	{{#account.log}}
+    	<div>
+    		<a class="black" href="http://127.0.0.1:3000/account/log/date/{{date_created}}"><strong>{{#lambdas.date}}{{date_created}}{{/lambdas.date}}</strong></a>
+    	</div>
+    	<hr/>
+    	{{/account.log}}
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Side Step</title>
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    
+  </head>
+  <body data-spy="affix" data-target="#drugs" data-offset-top="60" data-offset-bottom="200">
+
+    <!-- jQuery Javascript -->
+  	<script type="text/javascript"
+  	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- My Javascript -->
+    <script type="text/javascript"
+    src="javascripts/login.js"></script>
+
+    <script type="text/javascript"
+    src="javascripts/forum.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    {{>navbar}}
+    {{>login}}
+
+    <div class="jumbotron dark-background">
+      <div class="container">
+        <h2>You Have Questions. We Have Answers.</h2>
+        <p>That may not be exactly true. This entire system is pretty dependant on users
+          having more answers than questions. We don't do anything over here. You could say
+          we help you realize that the most important answers were inside you all along.
+          Pretty fucking deep, right?</p>
+      </div>
+    </div>
+
+    {{#account}}
+    <nav id="drugs" class="container col-xs-2 affix">
+      <h3>Be Cool</h3>
+      <p class="hidden-print hidden-xs hidden-sm">Never actually posted to a forum, have you? Try it. Just once.</p>
+      <a href="http://127.0.0.1:3000/forum/create"><button class="btn btn-success">Drugs</button></a>
+    </nav>
+    {{/account}}
+
+    <div class="container col-xs-8 col-xs-offset-2">
+        {{#threads}}
+        <hr/>
+        <span class="glyphicon glyphicon-comment green pull-left"></span>
+        <div class="container">
+          <a class="black" href="http://127.0.0.1:3000/forum/threads/{{_id}}"><h4>{{title}}</h4></a>
+          <p>Asked by <strong>{{username}}</strong></p>
+        </div>
+        {{/threads}}
+      {{>footer}}
+    </div>
+
+  </body>
+</html>

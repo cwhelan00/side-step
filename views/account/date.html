@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Side Step</title>
+
+	<!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+</head>
+
+<body>
+
+	<!-- jQuery Javascript -->
+  	<script type="text/javascript"
+  	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- My Javascript -->
+  	<script type="text/javascript"
+  	src="javascripts/account.js"></script>
+
+  	<script type="text/javascript"
+  	src="javascripts/date.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    {{>navbar}}
+
+    <ol class="breadcrumb">
+      <li><a href="http://127.0.0.1:3000/account/profile">Profile</a></li>
+      <li><a href="http://127.0.0.1:3000/account/log">Log</a></li>
+      <li class="active">Today</li>
+    </ol>
+
+    <div class="container">
+    	<div class="panel panel-success">
+    		<div id="breakfast-heading" class="panel-heading pointer">
+    			<span id="breakfast-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Breakfast
+    		</div>
+    		<div id="breakfast-body" class="panel-body">
+    			{{#breakfast}}
+    			<div class="row">
+					<div class="col-xs-4">
+						<p>Food:</p>
+						<p>Amount:</p>
+					</div>
+					<div class="col-xs-4">
+						<p>{{food}}</p>
+						<p class="small-margin-top">{{amount}}</p>
+					</div>
+				</div>
+				<hr/>
+    			{{/breakfast}}
+    		</div>
+    	</div>
+
+    	<div class="panel panel-success">
+    		<div id="lunch-heading" class="panel-heading pointer">
+    			<span id="lunch-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Lunch
+    		</div>
+    		<div id="lunch-body" class="panel-body">
+    			{{#lunch}}
+    			<div class="row">
+                    <div class="col-xs-4">
+                        <p>Food:</p>
+                        <p>Amount:</p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p>{{food}}</p>
+                        <p class="small-margin-top">{{amount}}</p>
+                    </div>
+                </div>
+				<hr/>
+    			{{/lunch}}
+    		</div>
+    	</div>
+
+    	<div class="panel panel-success">
+    		<div id="dinner-heading" class="panel-heading pointer">
+    			<span id="dinner-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Dinner
+    		</div>
+    		<div id="dinner-body" class="panel-body">
+    			{{#dinner}}
+    			<div class="row">
+                    <div class="col-xs-4">
+                        <p>Food:</p>
+                        <p>Amount:</p>
+                    </div>
+                    <div class="col-xs-4">
+                        <p>{{food}}</p>
+                        <p class="small-margin-top">{{amount}}</p>
+                    </div>
+                </div>
+				<hr/>
+    			{{/dinner}}
+    		</div>
+    	</div>
+
+    	<div class="panel panel-success">
+    		<div id="snack-heading" class="panel-heading pointer">
+    			<span id="snack-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Snack
+    		</div>
+    		<div id="snack-body" class="panel-body">
+    			{{#snack}}
+    			<div class="row">
+                        <div class="col-xs-4">
+                            <p>Food:</p>
+                            <p>Amount:</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p>{{food}}</p>
+                            <p class="small-margin-top">{{amount}}</p>
+                        </div>
+                    </div>
+				<hr/>
+    			{{/snack}}
+    		</div>
+    	</div>
+    </div>
+
+</body>
+
+</html>

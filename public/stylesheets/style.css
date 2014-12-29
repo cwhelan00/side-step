@@ -1,0 +1,81 @@
+ol li a{
+	color: green;
+}
+
+.green{
+	color: green;
+}
+
+.black{
+	color: black;
+}
+
+.dark-color{
+	color: #f8f8f8;
+}
+
+.dark-background{
+	background-color: #f8f8f8;
+}
+
+.darker-background{
+	background-color: #efefef;
+}
+
+.jimage{
+	height: 250px;
+	margin-right: 10px;
+}
+
+.small-margin{
+	margin: 5px;
+}
+
+.small-margin-top{
+	margin-top: 5px;
+}
+
+.small-margin-bottom{
+	margin-bottom: 15px;
+}
+
+.medium-margin-top{
+	margin-top: 75px;
+}
+
+.small-padding{
+	padding: 5px;
+}
+
+.vertical-padding{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.overlay{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	background-color: black;
+	opacity: 0.7;
+}
+
+.frame{
+	position: fixed;
+	z-index: 2;
+}
+
+.pointer{
+	cursor: pointer;
+	cursor: hand;
+}
+
+.footer{
+	height: 200px;
+	width: 100%;
+}
+
+a:hover{
+	color: green;
+}

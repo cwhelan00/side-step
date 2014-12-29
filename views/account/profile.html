@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Side Step</title>
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    
+  </head>
+  <body>
+
+    <!-- jQuery Javascript -->
+  	<script type="text/javascript"
+  	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+  	<!-- Google Chart Tools -->
+  	<script type="text/javascript" 
+  	src="https://www.google.com/jsapi"></script>
+
+  	<script type="text/javascript">
+  		google.load('visualization', '1.0', {'packages':['corechart']});
+  	</script>
+
+    <!-- My Javascript -->
+  	<script type="text/javascript"
+  	src="javascripts/account.js"></script>
+
+  	<script type="text/javascript"
+  	src="javascripts/profile.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+    {{>navbar}}
+
+    <div class="jumbotron dark-background">
+      <div class="container">
+        <img class="pull-left jimage" src="images/riddler.jpg"/>
+        <div class="col-xs-3">
+        	<h2>{{account.name.first}} {{account.name.last}}</h2>
+        	<p>Member since:</p>
+        	<p id="date-created">{{#lambdas.date}}{{account.date_created}}{{/lambdas.date}}</p>
+        </div>
+        <div class="col-xs-3">
+        	<h2>Identity Crisis?</h2>
+        	<p>We've got your back.</p>
+        	<a href="http://127.0.0.1:3000/account/settings"><button class="btn btn-success">Settings</button></a>
+        </div>
+        <div class="col-xs-3">
+        	<h2>Feeling Ashamed?</h2>
+        	<p>Make it permanent.</p>
+        	<a href="http://127.0.0.1:3000/account/log"><button class="btn btn-success">Log</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-lg-3">
+		<h3>Today</h3>
+		<form action="http://127.0.0.1:3000/account/update/days/today" method="post">
+			<div class="row">
+				<div class="col-xs-3 col-md-4 col-lg-6">
+					<p>Calories:</p>
+				</div>
+				<div class="col-xs-6 col-md-4 col-lg-6">
+					<input name="calories" type="number" value="{{today.calories}}"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-md-4 col-lg-6">
+					<p>Water (ounces):</p>
+				</div>
+				<div class="col-xs-6 col-md-4 col-lg-6">
+					<input name="water" type="number" value="{{today.water}}"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-md-4 col-lg-6">
+					<p>Sleep (hours):</p>
+				</div>
+				<div class="col-xs-6 col-md-4 col-lg-6">
+					<input name="sleep" type="number" value="{{today.sleep}}"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-md-4 col-lg-6">
+					<p>Weight (pounds):</p>
+				</div>
+				<div class="col-xs-6 col-md-4 col-lg-6">
+					<input name="weight" type="number" value="{{today.weight}}"/>
+				</div>
+			</div>
+			<button class="btn btn-success">Update</button>
+		</form>
+	</div>
+
+	<div class="col-xs-12 col-lg-9">
+		<div class="col-xs-12 col-md-8">
+			<div id="chart" style="width: 100%; height: 400px;"></div>
+		</div>
+
+		<div class="col-xs-12 col-md-4 medium-margin-top">
+			<div class="row">
+				<div class="col-xs-6 col-md-6">
+					<p>Select Data:</p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<select id="select-data">
+						<option value="calories">Calories</option>
+						<option value="water">Water</option>
+						<option value="sleep">Sleep</option>
+						<option value="weight">Weight</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-6">
+					<p>Maximum:</p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p id="data-max"></p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p>Minimum:</p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p id="data-min"></p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p>Average:</p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p id="data-average"></p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p>Current Goal:</p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p id="data-goal"></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-6">
+					<p>Select Interval:</p>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<select id="select-interval">
+						<option value="week">Week</option>
+						<option value="month">Month</option>
+						<option value="year">Year</option>
+						<option value="range">Range</option>
+					</select>
+				</div>
+			</div>
+			<div id="range-input" class="row">
+				<div class="col-xs-6 col-md-6">
+					<p>Start Date:</p>
+					<input id="start-date" type="date" />
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<p>End Date:</p>
+					<input id="end-date" type="date"/>
+				</div>
+				<div class="col-xs-6 col-md-6">
+					<button id="button-view-range" class="btn btn-success small-margin-top">View</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{>footer}}
+
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Side Step</title>
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    
+  </head>
+  <body>
+
+    <!-- jQuery Javascript -->
+    <script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- My Javascript -->
+    <script type="text/javascript"
+    src="javascripts/create_thread.js"></script>
+    
+    <script type="text/javascript"
+    src="javascripts/login.js"></script>
+
+    <script type="text/javascript"
+    src="javascripts/forum.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    
+    {{>navbar}}
+    {{>login}}
+
+    <ol class="breadcrumb">
+      <li><a href="http://127.0.0.1:3000/forum">Forum</a></li>
+      <li class="active">Create</li>
+    </ol>
+
+    <div class="container">
+      <form id="form-create-thread" action="http://127.0.0.1:3000/forum/create" method="post">
+        <p id="title-warning" class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Title!</p>
+        <table class="table">
+          <tr><td>Title:</td><td><input id="title" type="text" name="title" size="80" maxlength="80"/></td></tr>
+        </table>
+        <p id="body-warning" class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Body!</p>
+        <textarea id="body" class="col-md-12" rows=20 name="body"></textarea>
+        <button id="button-create-post" class="btn btn-success small-margin">Create</button>
+      </form>
+    </div>
+  </body>
+</html>

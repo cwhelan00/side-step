@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Side Step</title>
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    
+  </head>
+  <body>
+
+    <!-- jQuery Javascript -->
+  	<script type="text/javascript"
+  	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- My Javascript -->
+  	<script type="text/javascript"
+  	src="javascripts/account.js"></script>
+
+  	<script type="text/javascript"
+  	src="javascripts/settings.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+    {{>navbar}}
+
+    <ol class="breadcrumb">
+      <li><a href="http://127.0.0.1:3000/account/profile">Profile</a></li>
+      <li class="active">Settings</li>
+    </ol>
+    
+    <div class="container">
+    	<div class="panel panel-success">
+    		<div id="account-settings-heading" class="panel-heading pointer">
+    			<span id="account-settings-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			General Settings
+    		</div>
+    		<div id="account-settings-body" class="panel-body container">
+				<div class="row container">
+					<div class="col-xs-4">Username</div>
+					<div class="col-xs-4">{{account.username}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-username" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="username-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Username</p>
+						</div>
+					</div>
+					<div id="edit-username" class="row container">
+							<div class="col-xs-4"><p>Enter Username:</p></div>
+						<form id="form-update-username" action="http://127.0.0.1:3000/account/update/username" method="post">
+							<div class="col-xs-4">
+								<input id="username-new" name="username" type="text"/>
+							</div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-username" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+				<br/>
+				<div class="row container">
+					<div class="col-xs-4">Password</div>
+					<div class="col-xs-4">{{account.password}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-password" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="password-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Password</p>
+						</div>
+					</div>
+					<div id="edit-password" class="row container">
+						<form id="form-update-password" action="http://127.0.0.1:3000/account/update/password" method="post">
+							<div class="row container">
+								<div class="col-xs-4"><p>Enter Password:</p></div>
+								<div class="col-xs-4">
+									<input id="password-new" name="password" type="password"/>
+								</div>
+							</div>
+							<div id="confirm-warning-update" class="row container">
+								<div class="col-xs-4 col-xs-offset-4">
+									<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> No Match</p>
+								</div>
+							</div>
+							<div class="col-xs-4"><p>Confirm Password:</p></div>
+							<div class="col-xs-4">
+								<input id="confirm-new" type="password"/>
+							</div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-password" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+				<br/>
+				<div class="row container">
+					<div class="col-xs-4">Name</div>
+					<div class="col-xs-4">{{account.name.first}} {{account.name.last}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-name" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="first-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need First Name</p>
+						</div>
+					</div>
+					<div id="edit-name" class="row container">
+						<form id="form-update-name" action="http://127.0.0.1:3000/account/update/name" method="post">
+							<div class="row container">
+								<div class="col-xs-4"><p>Enter First Name:</p></div>
+								<div class="col-xs-4">
+									<input id="first-new" name="first" type="text" value="{{account.name.first}}"/>
+								</div>
+							</div>
+							<div id="last-warning-update" class="row container">
+								<div class="col-xs-4 col-xs-offset-4">
+									<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Last Name</p>
+								</div>
+							</div>
+							<div class="col-xs-4"><p>Enter Last Name:</p></div>
+							<div class="col-xs-4">
+								<input id="last-new" name="last" type="text" value="{{account.name.last}}"/>
+							</div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-name" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+				<br/>
+				<div class="row container">
+					<div class="col-xs-4">Email</div>
+					<div class="col-xs-4">{{account.email}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-email" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="email-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Email</p>
+						</div>
+					</div>
+					<div id="edit-email" class="row container">
+						<form id="form-update-email" action="http://127.0.0.1:3000/account/update/email" method="post">
+							<div class="col-xs-4"><p>Enter Email:</p></div>
+							<div class="col-xs-4"><input id="email-new" name="email" type="text"/></div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-email" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+    		</div>
+    	</div>
+
+    	<div class="panel panel-success">
+    		<div id="goals-heading" class="panel-heading pointer">
+    			<span id="goals-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Goals
+    		</div>
+    		<div id="goals-body" class="panel-body container">
+    			<div class="row container">
+					<div class="col-xs-4">Calories</div>
+					<div class="col-xs-4">{{account.goals.calories}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-calories" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="calories-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Calories</p>
+						</div>
+					</div>
+					<div id="edit-calories" class="row container">
+						<div class="col-xs-4"><p>Enter Calories:</p></div>
+						<form id="form-update-calories" action="http://127.0.0.1:3000/account/update/goals/calories" method="post">
+							<div class="col-xs-4">
+								<input id="calories-new" name="calories" type="number"/>
+							</div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-calories" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+				<br/>
+				<div class="row container">
+					<div class="col-xs-4">Water</div>
+					<div class="col-xs-4">{{account.goals.water}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-water" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="water-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Water</p>
+						</div>
+					</div>
+					<div id="edit-water" class="row container">
+						<div class="col-xs-4"><p>Enter Water:</p></div>
+						<form id="form-update-water" action="http://127.0.0.1:3000/account/update/goals/water" method="post">
+							<div class="col-xs-4">
+								<input id="water-new" name="water" type="number"/>
+							</div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-water" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+				<br/>
+				<div class="row container">
+					<div class="col-xs-4">Sleep</div>
+					<div class="col-xs-4">{{account.goals.sleep}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-sleep" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="sleep-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Sleep</p>
+						</div>
+					</div>
+					<div id="edit-sleep" class="row container">
+						<div class="col-xs-4"><p>Enter Sleep:</p></div>
+						<form id="form-update-sleep" action="http://127.0.0.1:3000/account/update/goals/sleep" method="post">
+							<div class="col-xs-4">
+								<input id="sleep-new" name="sleep" type="number"/>
+							</div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-sleep" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+				<br/>
+				<div class="row container">
+					<div class="col-xs-4">Weight</div>
+					<div class="col-xs-4">{{account.goals.weight}}</div>
+					<div class="col-xs-1 col-xs-offset-3"><span id="open-edit-weight" class="glyphicon glyphicon-pencil green pointer"></span></div>
+					<div id="weight-warning-update" class="row container">
+						<div class="col-xs-4 col-xs-offset-4">
+							<p class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Weight</p>
+						</div>
+					</div>
+					<div id="edit-weight" class="row container">
+						<form id="form-update-weight" action="http://127.0.0.1:3000/account/update/goals/weight" method="post">
+							<div class="col-xs-4"><p>Enter Weight:</p></div>
+							<div class="col-xs-4"><input id="weight-new" name="weight" type="number"/></div>
+						</form>
+						<div class="col-xs-4"><button id="button-update-weight" class="btn btn-success">Update</button></div>
+					</div>
+				</div>
+    		</div>
+    	</div>
+    </div>
+
+  </body>
+</html>

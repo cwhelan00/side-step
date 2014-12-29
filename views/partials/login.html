@@ -1,0 +1,33 @@
+<div id="frame-login" class="frame col-xs-4 col-xs-offset-4 dark-background">
+  <div class="col-md-6 col-md-offset-3 col-xs-12 small-padding">
+    <h2 class="green">Login</h2>
+    <form id="form-login" action="http://127.0.0.1:3000/login" method="post">
+      <table "table">
+        <tr>
+          <td>
+            <p id="username-warning-login" class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Username</p>
+          </td>
+        </tr>
+        <tr>
+          <td>User Name:           </td>
+          <td><input id="username-login" name="username" type="text"/></td>
+          <td><hr></td>
+        </tr>
+        <tr>
+          <td>
+            <p id="password-warning-login" class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Password</p>
+          </td>
+        </tr>
+        <tr>
+          <td>Password:            </td>
+          <td><input id="password-login" name="password" type="password"/></td>
+          <td><hr></td>
+        </tr>
+      </table>
+      
+      <p id="login-warning" class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Invalid Login</p>
+    </form>
+
+    <button id="button-login" class="btn btn-success small-margin">Login</button>
+  </div>
+</div>

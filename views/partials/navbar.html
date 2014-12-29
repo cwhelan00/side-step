@@ -1,0 +1,38 @@
+<div class="overlay"></div>
+
+<nav class="nav navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand"><span class="green">Side Step</span></p>
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-home">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-right" id="navbar-home">
+      <ul class="nav navbar-nav">
+        <li id="nav-home"><a href="http://127.0.0.1:3000/">Home</a></li>
+        <li id="nav-food"><a href="http://127.0.0.1:3000/food">Food</a></li>
+        <li id="nav-exercise"><a href="http://127.0.0.1:3000/exercise">Exercise</a></li>
+        <li id="nav-forum"><a href="http://127.0.0.1:3000/forum">Forum</a></li>
+        {{#account.name}}
+        <li id="nav-account">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{account.name.first}}</a>
+          <ul class="dropdown-menu">
+            <li><a href="http://127.0.0.1:3000/account/profile"><span class="glyphicon glyphicon-user pull-right green"></span>Profile</a></li>
+            <li><a href="http://127.0.0.1:3000/account/log"><span class="glyphicon glyphicon-th-list pull-right green"></span>Log</a></li>
+            <li><a href="http://127.0.0.1:3000/account/settings"><span class="glyphicon glyphicon-cog pull-right green"></span>Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="http://127.0.0.1:3000/logout"><span class="glyphicon glyphicon-off pull-right green"></span>LogOut</a></li>
+          </ul>
+        </li>
+        {{/account.name}}
+        {{^account.name}}
+        <li><a id="link-open-login" href="#">Login</a></li>
+        {{/account.name}}
+      </ul>
+    </div>
+  </div>
+</nav>

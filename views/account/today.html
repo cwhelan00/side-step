@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Side Step</title>
+
+	<!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+</head>
+
+<body>
+
+	<!-- jQuery Javascript -->
+  	<script type="text/javascript"
+  	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- My Javascript -->
+  	<script type="text/javascript"
+  	src="javascripts/account.js"></script>
+
+  	<script type="text/javascript"
+  	src="javascripts/today.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    {{>navbar}}
+
+    <ol class="breadcrumb">
+      <li><a href="http://127.0.0.1:3000/account/profile">Profile</a></li>
+      <li><a href="http://127.0.0.1:3000/account/log">Log</a></li>
+      <li class="active">Today</li>
+    </ol>
+
+    <div class="container">
+    	<div class="panel panel-success">
+    		<div id="breakfast-heading" class="panel-heading pointer">
+    			<span id="breakfast-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Breakfast
+    		</div>
+    		<div id="breakfast-body" class="panel-body">
+    			<form id="form-food-breakfast" action="http://127.0.0.1:3000/account/update/log/breakfast" method="post">
+	    			{{#breakfast}}
+	    			<div class="row">
+						<div class="col-xs-4">
+							<p>Food:</p>
+							<p>Amount:</p>
+						</div>
+						<div class="col-xs-4">
+							<div><input type="text" value="{{food}}" name="foods[]"/></div>
+							<div class="small-margin-top"><input type="number" value="{{amount}}" name="amounts[]"/></div>
+						</div>
+						<div class="col-xs-4">
+							<span class="glyphicon glyphicon-remove green pointer remove"></span>
+						</div>
+					</div>
+					<hr/>
+	    			{{/breakfast}}
+    			</form>
+    			<p>
+    				<span id="add-food-breakfast" class="glyphicon glyphicon-plus green pointer"></span>
+    				 Add Food
+    			</p>
+    		</div>
+    	</div>
+
+    	<div class="panel panel-success">
+    		<div id="lunch-heading" class="panel-heading pointer">
+    			<span id="lunch-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Lunch
+    		</div>
+    		<div id="lunch-body" class="panel-body">
+    			<form id="form-food-lunch" action="http://127.0.0.1:3000/account/update/log/lunch" method="post">
+	    			{{#lunch}}
+	    			<div class="row">
+						<div class="col-xs-4">
+							<p>Food:</p>
+							<p>Amount:</p>
+						</div>
+						<div class="col-xs-4">
+							<div><input type="text" value="{{food}}" name="foods[]"/></div>
+							<div class="small-margin-top"><input type="number" value="{{amount}}" name="amounts[]"/></div>
+						</div>
+						<div class="col-xs-4">
+							<span class="glyphicon glyphicon-remove green pointer remove"></span>
+						</div>
+					</div>
+					<hr/>
+	    			{{/lunch}}
+    			</form>
+    			<p>
+    				<span id="add-food-lunch" class="glyphicon glyphicon-plus green pointer"></span>
+    				 Add Food
+    			</p>
+    		</div>
+    	</div>
+
+    	<div class="panel panel-success">
+    		<div id="dinner-heading" class="panel-heading pointer">
+    			<span id="dinner-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Dinner
+    		</div>
+    		<div id="dinner-body" class="panel-body">
+    			<form id="form-food-dinner" action="http://127.0.0.1:3000/account/update/log/dinner" method="post">
+	    			{{#dinner}}
+	    			<div class="row">
+						<div class="col-xs-4">
+							<p>Food:</p>
+							<p>Amount:</p>
+						</div>
+						<div class="col-xs-4">
+							<div><input type="text" value="{{food}}" name="foods[]"/></div>
+							<div class="small-margin-top"><input type="number" value="{{amount}}" name="amounts[]"/></div>
+						</div>
+						<div class="col-xs-4">
+							<span class="glyphicon glyphicon-remove green pointer remove"></span>
+						</div>
+					</div>
+					<hr/>
+	    			{{/dinner}}
+    			</form>
+    			<p>
+    				<span id="add-food-dinner" class="glyphicon glyphicon-plus green pointer"></span>
+    				 Add Food
+    			</p>
+    		</div>
+    	</div>
+
+    	<div class="panel panel-success">
+    		<div id="snack-heading" class="panel-heading pointer">
+    			<span id="snack-arrow" class="glyphicon glyphicon-chevron-right pull-right"></span>
+    			Snack
+    		</div>
+    		<div id="snack-body" class="panel-body">
+    			<form id="form-food-snack" action="http://127.0.0.1:3000/account/update/log/snack" method="post">
+	    			{{#snack}}
+	    			<div class="row">
+						<div class="col-xs-4">
+							<p>Food:</p>
+							<p>Amount:</p>
+						</div>
+						<div class="col-xs-4">
+							<div><input type="text" value="{{food}}" name="foods[]"/></div>
+							<div class="small-margin-top"><input type="number" value="{{amount}}" name="amounts[]"/></div>
+						</div>
+						<div class="col-xs-4">
+							<span class="glyphicon glyphicon-remove green pointer remove"></span>
+						</div>
+					</div>
+					<hr/>
+	    			{{/snack}}
+    			</form>
+    			<p>
+    				<span id="add-food-snack" class="glyphicon glyphicon-plus green pointer"></span>
+    				 Add Food
+    			</p>
+    		</div>
+    	</div>
+    </div>
+
+</body>
+
+</html>

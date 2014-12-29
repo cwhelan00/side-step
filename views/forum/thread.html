@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Side Step</title>
+
+	<!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+</head>
+<body>
+
+	<!-- jQuery Javascript -->
+  	<script type="text/javascript"
+  	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- My Javascript -->
+    <script type="text/javascript"
+    src="javascripts/login.js"></script>
+
+    <script type="text/javascript"
+    src="javascripts/forum.js"></script>
+
+    <script type="text/javascript"
+    src="javascripts/thread.js"></script>
+
+    <!-- Latest compiled and minified JavaScript for Bootstrap -->
+    <script type="text/javascript" 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    {{>navbar}}
+    {{>login}}
+
+    <ol class="breadcrumb">
+      <li><a href="http://127.0.0.1:3000/forum">Forum</a></li>
+      <li class="active">Thread</li>
+    </ol>
+
+    <div class="container medium-margin-top">
+    	<h2>{{thread.title}}</h2>
+    	<hr/>
+    	<div class="darker-background vertical-padding container">
+    		<p>{{thread.body}}</p>
+    		<div class="pull-right">
+                <h4>Posted by <span class="green">{{thread.username}}</span></h4>
+                <p>{{#lambdas.date}}{{thread.date_created}}{{/lambdas.date}}</p>
+            </div>
+    	</div>
+    	<h3>{{thread.comments.length}} Responses</h3>
+    	<hr/>
+    	{{#thread.comments}}
+    	<div class="darker-background vertical-padding container">
+    		<p>{{body}}</p>
+            <div class="pull-right">
+                <h4>Posted by <span class="green">{{username}}</span></h4>
+                <p>{{#lambdas.date}}{{date_created}}{{/lambdas.date}}</p>
+            </div>
+    	</div>
+    	<hr/>
+    	{{/thread.comments}}
+    	{{#account}}
+    	<h3>Your Response</h3>
+    	<p id="response-warning" class="green"><span class="glyphicon glyphicon-exclamation-sign"></span> Need Response!</p>
+    	<form id="form-response" action="http://127.0.0.1:3000/forum/response/{{thread._id}}" method="post">
+    		<textarea id="response" name="body" class="col-md-12" rows=20></textarea>
+    	</form>
+    	<button id="button-add-response" class="btn btn-success small-margin-top">Respond</button>
+    	{{/account}}
+        {{^account}}
+        <h3>Have a Response? <button id="button-mock-login" class="btn btn-success">Login</button></h3>
+        {{/account}}
+    </div>
+
+    {{>footer}}
+
+</body>
+</html>
